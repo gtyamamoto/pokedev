@@ -1,0 +1,26 @@
+
+<h2>{{pokemon?.name}}</h2>
+<div class="row">
+    <div class="col-12 col-md-6">
+        <img [attr.src]="pokemon?.imageUrlHiRes" class="card-img-top" alt="...">
+    </div>
+    <div class="col-12 col-md-6">
+        <ul class="list-group">
+            <li class="list-group-item">ID: {{pokemon?.id}}</li>
+            <li class="list-group-item">Tipo(s): {{pokemon?.types.join()}}</li>
+            <li class="list-group-item">
+                <p>Ataques:</p> 
+                <ul class="list-group">
+                <li class="list-group-item" *ngFor="let attack of pokemon?.attacks">
+                  <ul class="list-group">
+                      <li class="list-group-item">Nome: {{attack.name}}</li>
+                      <li class="list-group-item">Dano: {{attack.damage}}</li>
+                      <li class="list-group-item">Descrição: {{attack.text}}</li>
+                      <li class="list-group-item">Custo(mana): {{attack.cost.join(',')}}</li>
+                  </ul>    
+                </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

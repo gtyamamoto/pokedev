@@ -1,0 +1,19 @@
+<h2>Pokemons</h2>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<form [formGroup]="pokemonsForm"  (ngSubmit)="onSubmit()" class="form-inline">
+    <div class="form-group mb-2 mr-2">
+      <label for="pokemonName" class="sr-only">Busca Por Nome</label>
+      <input type="text"  id="pokemonName"  formControlName="name">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+  </form>
+        <p class="mt-5" *ngIf="(isLoading | async);else pokelist">Loading...</p>
+<ng-template #pokelist>
+    
+    <div class="row pokemon-list">
+
+        <div *ngFor="let item of (pokemons$ | async) | paginate: { itemsPerPage: 27, currentPage: p }" class="col-md-4 col-sm-6 col-12 p-2">
+            <app-pokemon-list-item  [pokemon]="item"></app-pokemon-list-item>
+       </div>
+    </div>
+</ng-template>

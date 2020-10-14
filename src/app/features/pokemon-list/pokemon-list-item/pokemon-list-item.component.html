@@ -1,0 +1,10 @@
+<div class="card" style="width: 18rem;" (click)="onNavigateToPokemon()">
+    <img [attr.src]="pokemon.imageUrl" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{pokemon.name}}</h5>
+      <div class="card-text">
+        <ul class="list-group">
+            <li class="list-group-item">ID: {{pokemon.id}}</li>
+            <li class="list-group-item">Tipo(s): {{pokemon.types.join()}}</li>
+        </ul>
+  </div>
